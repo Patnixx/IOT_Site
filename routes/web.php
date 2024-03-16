@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\FeedController;
+use App\Http\Controllers\ClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,22 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::post('/register', function () {
-    return view('register');
-});
-
-Route::get('/feed', function () {
-    return view('feed');
-});
-
-Route::get('/classes', function() {
-    return view('classes');
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'index']);
+Route::get('/feed', [FeedController::class, 'index']);
+Route::get('/classes', [ClassController::class, 'index']);

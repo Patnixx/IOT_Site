@@ -20,4 +20,10 @@ use App\Http\Controllers\ClassController;
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'index']);
 Route::get('/feed', [FeedController::class, 'index']);
-Route::get('/classes', [ClassController::class, 'index']);
+
+Route::get('/classes', [ClassController::class, 'index'])->name('classIndex');
+Route::get('/classes/create', [ClassController::class, 'create'])->name('classCreate');
+Route::post('/classes/store', [ClassController::class, 'store']);
+Route::get('/classes/edit/{id}', [ClassController::class, 'edit'])->name('classEdit');
+Route::post('/classes/update/{id}', [ClassController::class, 'update']);
+Route::get('/classes/delete/{id}', [ClassController::class, 'delete']);

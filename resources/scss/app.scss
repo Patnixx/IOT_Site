@@ -62,7 +62,8 @@ body {
   .time {
     font-size: 0.8em;
     color: rgba(235, 235, 235, 0.64);
-    margin-right: 8px;
+    margin-right: 0.6rem;
+    padding-left: 1rem;
   }
 
   .content {
@@ -81,7 +82,10 @@ body {
   .register-container input[type="email"],
   .register-container input[type="password"],
   .register-container input[type="name"],
-  .register-container input[type="rfid"] {
+  .register-container input[type="rfid"],
+  .register-container input[type="class"],
+  .register-container input[type="teacher"],
+  .register-container input[type="status"] {
     width: 100%;
     padding: 0.7rem;
     margin-bottom: 0.9rem;
@@ -124,5 +128,124 @@ body {
     text-align: center;
     padding-top: 15%;
   }
+
+  .geno {
+    padding-top: 7%;
+  }
+  
+  .classes {
+    margin-bottom: 2.5rem;
+  }
+  
+  .class-info {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+    border-bottom: 1px solid #ddd;
+    width: 30%;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 2.5rem;
+  
+    &:hover {
+      background-color: #202020;
+      border-radius: 10px;
+      transform: scale(1.05);
+    }
+  }
+  
+  .class {
+    font-size: 1.2em;
+    font-weight: bold;
+    flex: 1;
+    padding-bottom: 5px;
+    text-align: center;
+    color: rgba(235, 235, 235, 0.64);
+  }
+  
+  .user {
+    font-size: 1.2em;
+    margin-left: 1rem;
+    padding-bottom: 5px;
+    color: rgba(235, 235, 235, 0.64);
+  }
+
+  .level {
+    font-size: 1.2em;
+    margin-left: 1rem;
+    padding-bottom: 5px;
+    color: yellow;
+  }
+  
+  .RFID {
+    font-size: 1.2em;
+    margin-left: 1rem;
+    padding-bottom: 5px;
+    color: red;
+  }
+  
+  .type {
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    color: red;
+  
+    &.active {
+      color: green;
+    }
+  }
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+  
+  .button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  
+    &.delete-button {
+      background-color: red;
+    }
+  
+    &.edit-button {
+      background-color: orange;
+    }
+  
+    &:hover {
+      background-color: #333;
+    }
+  }
+  
+  .create-button {
+    margin-top: 4.5rem;
+    background-color: green;
+    height: 4rem;
+    width: 8rem;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 2rem;
+    color: white;
+  }
+
+  
 
 }

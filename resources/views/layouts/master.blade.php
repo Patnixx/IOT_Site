@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>IOT_Site</title>
+        @vite(['resources/css/app.css'])
     </head>
     <body>
         @yield('content')

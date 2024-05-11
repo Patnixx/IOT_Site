@@ -9,7 +9,7 @@ class ClassController extends Controller
 {
     public function index() {
         $classes = Classroom::all();
-        return view('classes.index', compact('classes'));
+        return view('classes.indexc', compact('classes'));
     }
 
     public function create()
@@ -36,7 +36,7 @@ class ClassController extends Controller
     public function edit($id)
     {
         $class = Classroom::find($id);
-        return view('classes.edit', compact('class'));
+        return view('classes.editc', compact('class'));
     }
 
     public function update(Request $request, $id)

@@ -17,7 +17,7 @@ use App\Http\Controllers\UsersController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/', [LoginController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'index']);
 Route::get('/feed', [FeedController::class, 'index']);

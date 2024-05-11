@@ -11,7 +11,7 @@ class UsersController extends Controller
 {
     public function index(){
         $users = User::all();
-        return view('users.index', compact('users'));
+        return view('users.indexu', compact('users'));
     }
 
     public function create(){
@@ -41,7 +41,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users.edit', compact('user'));
+        return view('users.editu', compact('user'));
     }
 
     public function update(Request $request, $id)

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<div class="geno">
+<div class="container">
     <h1 class="green">Classes</h1>
     <div class="classes">
        <div class="class-info">

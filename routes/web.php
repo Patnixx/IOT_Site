@@ -14,5 +14,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.login');
+});
+
+Route::get('/feed', function () {
+    return view('feed.feed');
+});
+
+Route::get('/createclass', function () {
+    return view('classes.ceatec');
+});
+
+Route::get('/editclass', function () {
+    return view('classes.editc');
+});
+
+Route::get('/class', function () {
+    return view('classes.indexc');
+});
+
+Route::get('/createuser', function () {
+    return view('users.ceateu');
+});
+
+Route::get('/edituser', function () {
+    return view('users.editu');
+});
+
+Route::get('/user', function () {
+    return view('users.indexu');
 });

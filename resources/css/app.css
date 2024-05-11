@@ -1,0 +1,106 @@
+body {
+  font-family: Inter, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-color: #181818;
+}
+body h1 {
+  text-align: center;
+  color: hsl(160, 100%, 37%);
+}
+body img {
+  margin-right: 1rem;
+}
+body h2 {
+  font-weight: bold;
+}
+body .feed-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+  margin-bottom: 4rem;
+}
+body .super {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .feed-item {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+  transition: 0.2s;
+  color: #ccc;
+}
+body .feed-item:hover {
+  background-color: #202020;
+  border-radius: 10px;
+  transform: scale(1.05);
+}
+body img {
+  height: 60px;
+  border-radius: 10px;
+}
+body .time-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+body .time {
+  font-size: 0.8em;
+  color: rgba(235, 235, 235, 0.64);
+  margin-right: 8px;
+}
+body .content {
+  font-size: 1.2em;
+  padding: 0.8rem 0;
+}
+body .register-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10%;
+}
+body .register-container input[type=email],
+body .register-container input[type=password],
+body .register-container input[type=name],
+body .register-container input[type=rfid] {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 0.9rem;
+  border: 1px solid;
+  border-radius: 9px;
+  box-sizing: border-box;
+}
+body .ram {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+body .register-container button[type=submit] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+body .register-container button[type=submit]:hover {
+  background-color: #45a049;
+}
+body label[for=student],
+body label[for=teacher] {
+  color: rgba(235, 235, 235, 0.64);
+}
+body .login-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  padding-top: 15%;
+}/*# sourceMappingURL=app.css.map */

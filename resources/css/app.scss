@@ -1,0 +1,251 @@
+
+body {
+  font-family: Inter, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;;
+  background-color: #181818;
+
+  // Duplicate body selector removed
+
+  h1 {
+    text-align: center;
+    color: hsla(160, 100%, 37%, 1);
+  }
+
+  img {
+    margin-right: 1rem;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  .feed-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
+    margin-bottom: 4rem;
+  }
+
+  .super {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .feed-item {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ccc;
+    transition: 0.2s;
+    color: #ccc;
+
+    &:hover {
+      background-color: #202020;
+      border-radius: 10px;
+      transform: scale(1.05);
+    }
+  }
+
+  img {
+    height: 60px;
+    border-radius: 10px;
+  }
+
+  .time-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .time {
+    font-size: 0.8em;
+    color: rgba(235, 235, 235, 0.64);
+    margin-right: 0.6rem;
+    padding-left: 1rem;
+  }
+
+  .content {
+    font-size: 1.2em;
+    padding: 0.8rem 0;
+  }
+
+  .register-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .register-container input[type="email"],
+  .register-container input[type="password"],
+  .register-container input[type="name"],
+  .register-container input[type="rfid"],
+  .register-container input[type="class"],
+  .register-container input[type="teacher"],
+  .register-container input[type="status"] {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 0.9rem;
+    border: 1px solid;
+    border-radius: 9px;
+    box-sizing: border-box;
+  }
+
+  .ram {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .register-container button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  .register-container button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  label[for="student"],
+  label[for="teacher"] {
+    color: rgba(235, 235, 235, 0.64);
+  }
+
+  .login-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    padding-top: 15%;
+  }
+
+  .geno {
+    padding-top: 7%;
+  }
+  
+  .classes {
+    margin-bottom: 2.5rem;
+  }
+  
+  .class-info {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+    border-bottom: 1px solid #ddd;
+    width: 30%;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 2.5rem;
+  
+    &:hover {
+      background-color: #202020;
+      border-radius: 10px;
+      transform: scale(1.05);
+    }
+  }
+  
+  .class {
+    font-size: 1.2em;
+    font-weight: bold;
+    flex: 1;
+    padding-bottom: 5px;
+    text-align: center;
+    color: rgba(235, 235, 235, 0.64);
+  }
+  
+  .user {
+    font-size: 1.2em;
+    margin-left: 1rem;
+    padding-bottom: 5px;
+    color: rgba(235, 235, 235, 0.64);
+  }
+
+  .level {
+    font-size: 1.2em;
+    margin-left: 1rem;
+    padding-bottom: 5px;
+    color: yellow;
+  }
+  
+  .RFID {
+    font-size: 1.2em;
+    margin-left: 1rem;
+    padding-bottom: 5px;
+    color: red;
+  }
+  
+  .type {
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    color: red;
+  
+    &.active {
+      color: green;
+    }
+  }
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+  
+  .button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  
+    &.delete-button {
+      background-color: red;
+    }
+  
+    &.edit-button {
+      background-color: orange;
+    }
+  
+    &:hover {
+      background-color: #333;
+    }
+  }
+  
+  .create-button {
+    margin-top: 4.5rem;
+    background-color: green;
+    height: 4rem;
+    width: 8rem;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 2rem;
+    color: white;
+  }
+
+  
+
+}

@@ -22,6 +22,7 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'index']);
 Route::get('/feed', [FeedController::class, 'index']);
 
+/*
 Route::get('classes/index', [ClassController::class, 'index'])->name('classIndex');
 Route::get('classes/create', [ClassController::class, 'create'])->name('classCreate');
 Route::post('classes/store', [ClassController::class, 'store']);
@@ -35,3 +36,28 @@ Route::post('users/store', [UsersController::class, 'store']);
 Route::get('users/edit/{id}', [UsersController::class, 'edit'])->name('usersEdit');
 Route::post('users/update/{id}', [UsersController::class, 'update']);
 Route::post('users/delete/{id}', [UsersController::class, 'delete']);
+*/
+
+Route::get('classes/index', function(){
+    return view('classes.indexc');
+});
+
+Route::get('classes/create', function(){
+    return view('classes.createc');
+});
+
+Route::get('classes/edit', function(){
+    return view('classes.editc');
+});
+
+Route::get('users/index', function(){
+    return view('users.indexu');
+});
+
+Route::get('users/create', function(){
+    return view('users.createu');
+});
+
+Route::get('users/edit', function(){
+    return view('users.editu');
+});

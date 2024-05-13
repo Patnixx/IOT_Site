@@ -38,19 +38,19 @@ Route::post('users/update/{id}', [UsersController::class, 'update']);
 Route::post('users/delete/{id}', [UsersController::class, 'delete']);
 */
 
-Route::get('classes/index', function(){
+Route::get('classes', function(){
     return view('classes.indexc');
 });
 
 Route::get('classes/create', function(){
-    return view('classes.createc');
+    return view('classes.createc')->name('classCreate');
 });
 
 Route::get('classes/edit', function(){
     return view('classes.editc');
 });
 
-Route::get('users/index', function(){
+Route::get('users', function(){
     return view('users.indexu');
 });
 

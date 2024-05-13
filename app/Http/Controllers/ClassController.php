@@ -20,12 +20,12 @@ class ClassController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'class_num' => ['required'],
+            'class' => ['required'],
             'teacher'=> ['required'],
         ]);
 
         Classroom::create([
-            'class_num' => $request->class_num,
+            'class' => $request->class,
             'teacher' => $request->teacher,
         ]);
 
@@ -42,12 +42,12 @@ class ClassController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'class_num' => ['required'],
+            'class' => ['required'],
             'teacher'=> ['required'],
         ]);
 
         Classroom::where('id', $id)->update([
-            'class_num' => $request->class_num,
+            'class' => $request->class,
             'teacher' => $request->teacher,
         ]);
 

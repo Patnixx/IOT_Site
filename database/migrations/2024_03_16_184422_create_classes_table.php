@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('classes', function (Blueprint $table) {
-            $table->id();
-            $table->string('class_num')->unique();
-            $table->boolean('is_open');
+            $table->increments('id');
+            $table->string('class')->unique();
             $table->string('teacher');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

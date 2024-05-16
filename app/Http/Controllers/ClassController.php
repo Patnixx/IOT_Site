@@ -20,13 +20,15 @@ class ClassController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'class' => ['required'],
+            'class_num' => ['required'],
             'teacher'=> ['required'],
+            //'status' => ['required'], //TODO - send radio button value
         ]);
 
         Classroom::create([
-            'class' => $request->class,
+            'class_num' => $request->class_num,
             'teacher' => $request->teacher,
+            'status' => "picus",           //TODO - change to dynamic
         ]);
 
         Session::flash('success-message', 'Class created successfully!');

@@ -11,7 +11,7 @@ class Classroom extends Model
 
     protected $fillable = [
         'class_num',
-        'is_open',
+        'status',
         'teacher',
     ];
 }

@@ -10,8 +10,8 @@
             <div class="type active">Open</div>
             <div class="time">23:59</div>
             <div class="buttons">
-                <button class="button delete-button">Delete</button>
-                <button class="button edit-button">Edit</button>
+                <button class="button delete-button">Delete</button> //TODO - pridat boostrap ikonky a prekliky
+                <button class="button edit-button">Edit</button>     //NOTE - to iste ako vyssie 
             </div>
             </div>
         </div>
@@ -28,6 +28,6 @@
     </div>
 </div>
 <div class="buttons">
-    <button class="button create-button">Create</button>
+    <button class="button create-button">Create</button> //FIXME - nastylovat
 </div>
 @endsection

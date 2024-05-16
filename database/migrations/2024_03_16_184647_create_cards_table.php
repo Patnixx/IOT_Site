@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
             $table->string('card_num')->unique();
-            $table->string('owner');
+            $table->int('owner')->unique();
             $table->timestamps();
         });
     }

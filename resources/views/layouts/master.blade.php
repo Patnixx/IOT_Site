@@ -3,6 +3,7 @@
     <head>
         <title>IOT_Site</title>
         @vite(['resources/css/app.css'])
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
         @yield('content')

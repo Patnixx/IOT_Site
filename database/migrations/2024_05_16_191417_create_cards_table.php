@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('card_num')->unique();
-            $table->int('owner')->unique();
+            $table->string('rfid')->unique();
+            $table->integer('owner')->unique();
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class ClassController extends Controller
 
     public function create()
     {
-        return redirect()->route('classCreate');
+        return view('classes.createc');
     }
 
     public function store(Request $request)

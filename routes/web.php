@@ -21,43 +21,19 @@ Route::get('/', [LoginController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'index']);
 Route::get('/feed', [FeedController::class, 'index']);
+//Route::get('/classes/create', [ClassController::class, 'create']);
 
-/*
+
 Route::get('classes/index', [ClassController::class, 'index'])->name('classIndex');
 Route::get('classes/create', [ClassController::class, 'create'])->name('classCreate');
-Route::post('classes/store', [ClassController::class, 'store']);
+Route::post('classes/store', [ClassController::class, 'store'])->name('classStore');
 Route::get('classes/edit/{id}', [ClassController::class, 'edit'])->name('classEdit');
 Route::post('classes/update/{id}', [ClassController::class, 'update']);
 Route::post('classes/delete/{id}', [ClassController::class, 'delete']);
 
 Route::get('users/index', [UsersController::class, 'index'])->name('usersIndex');
 Route::get('users/create', [UsersController::class, 'create'])->name('usersCreate');
-Route::post('users/store', [UsersController::class, 'store']);
+Route::post('users/store', [UsersController::class, 'store'])->name('usersStore');
 Route::get('users/edit/{id}', [UsersController::class, 'edit'])->name('usersEdit');
 Route::post('users/update/{id}', [UsersController::class, 'update']);
 Route::post('users/delete/{id}', [UsersController::class, 'delete']);
-*/
-
-Route::get('classes', function(){
-    return view('classes.indexc');
-});
-
-Route::get('classes/create', function(){
-    return view('classes.createc')->name('classCreate');
-});
-
-Route::get('classes/edit', function(){
-    return view('classes.editc');
-});
-
-Route::get('users', function(){
-    return view('users.indexu');
-});
-
-Route::get('users/create', function(){
-    return view('users.createu');
-});
-
-Route::get('users/edit', function(){
-    return view('users.editu');
-});

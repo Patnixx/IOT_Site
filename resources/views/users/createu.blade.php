@@ -2,7 +2,8 @@
 @section('content')
 <div class="register-container">
         <h1 class="green">Register User</h1>
-        <form>
+        <form action="{{ route('usersStore')}}" method="POST">
+          @csrf
           <input type="name" id="name" name="name" placeholder="Name">
           <input type="email" id="email" name="email" placeholder="Email">
           <input type="password" id="password" name="password" placeholder="Password">

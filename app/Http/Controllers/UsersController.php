@@ -5,7 +5,7 @@ use Session;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-use function Symfony\Component\String\b;
+//use function Symfony\Component\String\b;
 
 class UsersController extends Controller
 {
@@ -15,23 +15,27 @@ class UsersController extends Controller
     }
 
     public function create(){
-        return redirect()->route('usersCreate');
+        return view('users.createu');
     }
 
     public function store(Request $request)
     {
+        /*return $request->all();*/
+
         $request->validate([
             'name'=> ['required'],
             'email'=> ['required'],
             'password'=> ['required'],
-            'personal_card'=> ['required'],
+            'rfid'=> ['required'],
+            //'status'=> ['required'],
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            'personal_card' => $request->personal_card,
+            'rfid' => $request->rfid,
+            'is_teacher' => 'kokot',
         ]);
 
         Session::flash('success-message', 'User created successfully!');
@@ -50,14 +54,14 @@ class UsersController extends Controller
             'name'=> ['required'],
             'email'=> ['required'],
             'password'=> ['required'],
-            'personal_card'=> ['required'],
+            'rfid'=> ['required'],
         ]);
 
         User::where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            'personal_card' => $request->personal_card,
+            'rfid' => $request->rfid,
         ]);
 
         Session::flash('success-message', 'User updated successfully!');

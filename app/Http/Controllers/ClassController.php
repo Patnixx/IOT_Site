@@ -28,7 +28,7 @@ class ClassController extends Controller
         Classroom::create([
             'class_num' => $request->class_num,
             'teacher' => $request->teacher,
-            'status' => "picus",           //TODO - change to dynamic
+            'status' => "open",           //TODO - change to dynamic
         ]);
 
         Session::flash('success-message', 'Class created successfully!');

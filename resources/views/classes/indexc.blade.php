@@ -47,7 +47,7 @@
         <p>Closed Classes: X </p>
     </div>
 </div>
-<div class="buttons">
-    <a href="{{route('classCreate')}}" class="button create-button">Create</a> <!--FIXME - nastylovat-->
+<div class="acko">
+    <a href="{{route('classCreate')}}">Create</a> <!--FIXME - nastylovat-->
 </div>
 @endsection

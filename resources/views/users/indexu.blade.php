@@ -43,7 +43,7 @@
         <p>Number of Students: X </p>
     </div>
 </div>
-<div class="buttons">
-    <a href="{{route('usersCreate')}}" class="button create-button">Create User</a> <!--FIXME - nastylovat -->
+<div class="acko">
+    <a href="{{route('usersCreate')}}">Create User</a> <!--FIXME - nastylovat -->
 </div>
 @endsection

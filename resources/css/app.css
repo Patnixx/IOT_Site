@@ -15,6 +15,28 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
+.acko {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+.acko a {
+  background-color: green;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0 auto; /* add this line */
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.acko a:hover {
+  background-color: #006400;
+}
+
 img {
   margin-right: 1rem;
   height: 60px !important;
@@ -204,7 +226,7 @@ h2 {
   align-items: center;
   transition: 0.2s;
   border-bottom: 1px solid #ddd;
-  width: 30%;
+  width: 40%;
   margin: 0 auto;
   border-radius: 10px;
   height: 2.5rem;
@@ -225,9 +247,15 @@ h2 {
   flex: 1;
   text-align: center;
   color: rgba(235, 235, 235, 0.64);
+  display: flex;
+  padding-left: 1rem;
 }
 .container .classes .class-info .user {
   color: rgba(235, 235, 235, 0.64);
+  max-width: 10ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .container .classes .class-info .level {
   color: yellow;
@@ -247,6 +275,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
 }
 .container .classes .class-info .buttons button {
   background-color: transparent;
@@ -256,22 +285,33 @@ h2 {
   padding: 5px 10px;
   margin-left: 10px;
   border-radius: 5px;
+  transition: 0.3s;
   cursor: pointer;
 }
 .container .classes .class-info .buttons button:hover {
   background-color: #202020;
+  transition: 0.3s;
 }
 .container .classes .class-info .buttons button.delete-button {
-  color: red;
+  background-color: red;
+  margin-right: 0.5rem;
+}
+.container .classes .class-info .buttons button.delete-button:hover {
+  background-color: #8B0000;
 }
 .container .classes .class-info .buttons button.edit-button {
-  color: orange;
+  background-color: orange;
+  margin-right: 1rem;
+}
+.container .classes .class-info .buttons button.edit-button:hover {
+  background-color: #8B4000;
 }
 .container .classes .class-info .buttons button.create-button {
   margin-top: 4.5rem;
   background-color: green;
-  height: 4rem;
-  width: 8rem;
+  height: 8rem;
+  width: 16rem;
+  cursor: pointer;
 }
 
 .stats {

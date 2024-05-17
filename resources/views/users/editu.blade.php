@@ -2,11 +2,12 @@
 @section('content')
 <div class="register-container">
         <h1 class="green">Edit User</h1>
-        <form>
-          <input type="name" id="name" name="name" placeholder="Name">
-          <input type="email" id="email" name="email" placeholder="Email">
-          <input type="password" id="password" name="password" placeholder="Password">
-          <input type="rfid" id="rfid" name="rfid" placeholder="RFID">
+        <form action="{{route('usersUpdate', $user->id)}}" method="POST">
+          @csrf
+          <input type="name" id="name" name="name" value="{{$user->name}}">
+          <input type="email" id="email" name="email" value="{{$user->email}}">
+          <input type="password" id="password" name="password" value="{{$user->password}}">
+          <input type="rfid" id="rfid" name="rfid" value="{{$user->rfid}}">
           <div class="ram">
             <input type="radio" id="teacher" name="level" value="Teacher">
             <label for="teacher">Teacher</label><br>

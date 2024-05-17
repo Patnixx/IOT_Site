@@ -35,7 +35,7 @@ class UsersController extends Controller
             'email' => $request->email,
             'password' => $request->password,
             'rfid' => $request->rfid,
-            'is_teacher' => 'kokot',
+            'is_teacher' => 'skolnik',
         ]);
 
         Session::flash('success-message', 'User created successfully!');
@@ -50,21 +50,21 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        /*$request->validate([
             'name'=> ['required'],
             'email'=> ['required'],
             'password'=> ['required'],
             'rfid'=> ['required'],
-        ]);
+        ]);*/
 
         User::where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => $request->password, /*FIXME - password should be hashed*/
             'rfid' => $request->rfid,
         ]);
 
-        Session::flash('success-message', 'User updated successfully!');
+        //Session::flash('success-message', 'User updated successfully!');
         return redirect()->route('usersIndex');
     }
 

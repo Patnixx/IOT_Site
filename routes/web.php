@@ -24,6 +24,7 @@ Route::get('/feed', [FeedController::class, 'index']);
 //Route::get('/classes/create', [ClassController::class, 'create']);
 
 
+Route::get('classes', [ClassController::class, 'index'])->name('classIndex');
 Route::get('classes/index', [ClassController::class, 'index'])->name('classIndex');
 Route::get('classes/create', [ClassController::class, 'create'])->name('classCreate');
 Route::post('classes/store', [ClassController::class, 'store'])->name('classStore');
@@ -31,6 +32,7 @@ Route::get('classes/edit/{id}', [ClassController::class, 'edit'])->name('classEd
 Route::post('classes/update/{id}', [ClassController::class, 'update'])->name('classUpdate');
 Route::post('classes/delete/{id}', [ClassController::class, 'delete'])->name('classDelete');
 
+Route::get('users', [UsersController::class, 'index'])->name('usersIndex');
 Route::get('users/index', [UsersController::class, 'index'])->name('usersIndex');
 Route::get('users/create', [UsersController::class, 'create'])->name('usersCreate');
 Route::post('users/store', [UsersController::class, 'store'])->name('usersStore');

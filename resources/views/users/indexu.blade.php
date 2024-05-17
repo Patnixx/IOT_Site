@@ -22,8 +22,14 @@
                 <div class="level">{{$user->is_teacher}}</div>
                 <div class="RFID">{{$user->rfid}}</div>
                 <div class="buttons">
-                    <a href="{{--route('usersDelete')--}}" class="button delete-button">Delete</a> <!--TODO - pridat boostrap ikonky a prekliky -->
-                    <a href="{{route('usersEdit', $user->id)}}" class="button edit-button">Edit</a>     <!--NOTE - to iste ako vyssie -->
+                    <form action="{{route('usersDelete', $user->id)}}" method="POST">
+                        @csrf
+                        <button class="button delete-button">Delete</button><!--TODO - pridat boostrap ikonky a prekliky -->
+                    </form>
+                    <form action="{{route('usersEdit', $user->id)}}" method="get">
+                        @csrf
+                        <button class="button edit-button">Edit</button>     <!--NOTE - to iste ako vyssie -->
+                    </form> 
                   </div>
             </div>
         </div>

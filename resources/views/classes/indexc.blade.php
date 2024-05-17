@@ -24,8 +24,14 @@
                 <div class="type active">{{$class->status}}</div>
                 <div class="time">{{$class->updated_at}}</div>
                 <div class="buttons">
-                    <a href="{{----}}" class="button delete-button">Delete</a> <!--TODO - pridat boostrap ikonky a prekliky-->
-                    <a href="{{route('classEdit', $class->id)}}" class="button edit-button">Edit</a>     <!--NOTE - to iste ako vyssie -->
+                    <form action="{{route('classDelete', $class->id)}}" method="post">
+                        @csrf
+                        <button class="button delete-button">Delete</button> <!--TODO - pridat boostrap ikonky a prekliky-->
+                    </form>
+                    <form action="{{route('classEdit', $class->id)}}" method="get">
+                        @csrf
+                        <button class="button edit-button">Edit</button>     <!--NOTE - to iste ako vyssie -->
+                    </form>
                 </div>
             </div>
         </div>

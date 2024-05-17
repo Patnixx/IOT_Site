@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <h1 class="green">Users</h1>
-    @for($i = 0; $i < 3; $i++)
+    {{--@for($i = 0; $i < 3; $i++)
     <div class="classes">
        <div class="class-info">
          <div class="user">Paní Ing. Lenka Vnuková</div>
@@ -14,7 +14,20 @@
          </div>
        </div>
     </div>
-    @endfor
+    @endfor--}}
+    @foreach ($users as $user)
+        <div class="classes">
+            <div class="class-info">
+                <div class="user">{{$user->name}}</div>
+                <div class="level">{{$user->is_teacher}}</div>
+                <div class="RFID">{{$user->rfid}}</div>
+                <div class="buttons">
+                    <button class="button delete-button">Delete</button> <!--TODO - pridat boostrap ikonky a prekliky -->
+                    <button class="button edit-button">Edit</button>     <!--NOTE - to iste ako vyssie -->
+                  </div>
+            </div>
+        </div>
+    @endforeach
 </div>
 <div class="stats">
     <div class="stat">
@@ -25,6 +38,6 @@
     </div>
 </div>
 <div class="buttons">
-    <button class="button create-button">Create User</button> //FIXME - nastylovat
+    <button class="button create-button">Create User</button> <!--FIXME - nastylovat -->
 </div>
 @endsection

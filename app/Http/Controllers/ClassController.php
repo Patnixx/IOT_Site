@@ -43,17 +43,18 @@ class ClassController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        /*$request->validate([
             'class' => ['required'],
             'teacher'=> ['required'],
-        ]);
+        ]); */
 
         Classroom::where('id', $id)->update([
-            'class' => $request->class,
+            'class_num' => $request->class_num,
             'teacher' => $request->teacher,
+            'status' => $request->status,
         ]);
 
-        Session::flash('success-message', 'Class updated successfully!');
+        //Session::flash('success-message', 'Class updated successfully!');
         return redirect()->route('classIndex');
     }
 

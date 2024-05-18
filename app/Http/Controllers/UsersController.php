@@ -27,7 +27,7 @@ class UsersController extends Controller
             'email'=> ['required'],
             'password'=> ['required'],
             'rfid'=> ['required'],
-            //'status'=> ['required'],
+            'level'=> ['required'],
         ]);
 
         User::create([
@@ -35,7 +35,7 @@ class UsersController extends Controller
             'email' => $request->email,
             'password' => $request->password,
             'rfid' => $request->rfid,
-            'is_teacher' => 'skolnik',
+            'is_teacher' => $request->level,
         ]);
 
         Session::flash('success-message', 'User created successfully!');
@@ -50,18 +50,20 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
-        /*$request->validate([
+        $request->validate([
             'name'=> ['required'],
             'email'=> ['required'],
             'password'=> ['required'],
             'rfid'=> ['required'],
-        ]);*/
+            'level'=> ['required'],
+        ]);
 
         User::where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password, /*FIXME - password should be hashed*/
             'rfid' => $request->rfid,
+            'is_teacher' => $request->level,
         ]);
 
         //Session::flash('success-message', 'User updated successfully!');

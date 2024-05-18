@@ -9,10 +9,19 @@
           <input type="password" id="password" name="password" value="{{$user->password}}">
           <input type="rfid" id="rfid" name="rfid" value="{{$user->rfid}}">
           <div class="ram">
-            <input type="radio" id="teacher" name="level" value="Teacher">
-            <label for="teacher">Teacher</label><br>
-            <input type="radio" id="student" name="level" value="Student">
-            <label for="student">Student</label><br>
+            @if($user->is_teacher == 'Teacher')
+              <input type="radio" id="teacher" name="level" value="Teacher" checked>
+              <label for="teacher">Teacher</label><br>
+              <input type="radio" id="student" name="level" value="Student">
+              <label for="student">Student</label><br>
+            
+            @else
+              <input type="radio" id="teacher" name="level" value="Teacher">
+              <label for="teacher">Teacher</label><br>
+              <input type="radio" id="student" name="level" value="Student" checked>
+              <label for="student">Student</label><br>
+            
+            @endif
           </div>
           <button type="submit">Save</button>
         </form>

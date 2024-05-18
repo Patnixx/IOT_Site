@@ -6,7 +6,24 @@
           @csrf
           <input type="class" id="class_num" name="class_num" value="{{$class->class_num}}">
           <input type="teacher" id="teacher" name="teacher" value="{{$class->teacher}}">
-          <input type="status" id="status" name="status" value="{{$class->status}}">
+          <div class="ram">
+            @if($class->status == 'Opened')
+              <input type="radio" id="teacher" name="status" value="Opened" checked>
+              <label for="teacher">Opened</label><br>
+              <input type="radio" id="student" name="status" value="Closed">
+              <label for="student">Closed</label><br>   
+            @elseif($class->status == 'Closed')
+              <input type="radio" id="teacher" name="status" value="Opened">
+              <label for="teacher">Opened</label><br>
+              <input type="radio" id="student" name="status" value="Closed" checked>
+              <label for="student">Closed</label><br>
+            @else
+              <input type="radio" id="teacher" name="status" value="Opened">
+              <label for="teacher">Opened</label><br>
+              <input type="radio" id="student" name="status" value="Closed">
+              <label for="student">Closed</label><br>
+            @endif
+          </div>
           <button type="submit" name="submit">Save</button>
         </form>
       </div>

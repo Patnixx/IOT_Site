@@ -9,7 +9,10 @@ class ClassController extends Controller
 {
     public function index() {
         $classes = Classroom::all();
-        return view('classes.indexc', compact('classes'));
+        $classes_num = Classroom::all()->count();
+        $classes_open = Classroom::where('status', 'opened')->count();
+        $classes_closed = Classroom::where('status', 'closed')->count();
+        return view('classes.indexc', compact('classes', 'classes_num', 'classes_open', 'classes_closed'));
     }
 
     public function create()
@@ -22,13 +25,13 @@ class ClassController extends Controller
         $request->validate([
             'class_num' => ['required'],
             'teacher'=> ['required'],
-            //'status' => ['required'], //TODO - send radio button value
+            'status' => ['required'],
         ]);
 
         Classroom::create([
             'class_num' => $request->class_num,
             'teacher' => $request->teacher,
-            'status' => "open",           //TODO - change to dynamic
+            'status' => $request->status,
         ]);
 
         Session::flash('success-message', 'Class created successfully!');
@@ -43,10 +46,11 @@ class ClassController extends Controller
 
     public function update(Request $request, $id)
     {
-        /*$request->validate([
-            'class' => ['required'],
+        $request->validate([
+            'class_num' => ['required'],
             'teacher'=> ['required'],
-        ]); */
+            'status' => ['required'],
+        ]);
 
         Classroom::where('id', $id)->update([
             'class_num' => $request->class_num,
@@ -54,7 +58,7 @@ class ClassController extends Controller
             'status' => $request->status,
         ]);
 
-        //Session::flash('success-message', 'Class updated successfully!');
+        Session::flash('success-message', 'Class updated successfully!');
         return redirect()->route('classIndex');
     }
 

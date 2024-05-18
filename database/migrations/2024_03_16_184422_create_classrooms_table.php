@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('class_num')->unique();
             $table->string('teacher');
-            $table->string('status'); //TODO - change to boolean/int
+            $table->string('status');
             $table->timestamps();
         });
     }

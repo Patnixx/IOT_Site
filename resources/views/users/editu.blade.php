@@ -14,13 +14,16 @@
               <label for="teacher">Teacher</label><br>
               <input type="radio" id="student" name="level" value="Student">
               <label for="student">Student</label><br>
-            
-            @else
+            @elseif($user->is_teacher == 'Student')
               <input type="radio" id="teacher" name="level" value="Teacher">
               <label for="teacher">Teacher</label><br>
               <input type="radio" id="student" name="level" value="Student" checked>
               <label for="student">Student</label><br>
-            
+            @else
+              <input type="radio" id="teacher" name="level" value="Teacher">
+              <label for="teacher">Teacher</label><br>
+              <input type="radio" id="student" name="level" value="Student">
+              <label for="student">Student</label><br>
             @endif
           </div>
           <button type="submit">Save</button>

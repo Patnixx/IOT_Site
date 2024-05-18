@@ -11,7 +11,9 @@ class UsersController extends Controller
 {
     public function index(){
         $users = User::all();
-        return view('users.indexu', compact('users'));
+        $users_teacher = User::where('is_teacher', 'Teacher')->count();
+        $users_student = User::where('is_teacher', 'Student')->count();
+        return view('users.indexu', compact('users', 'users_teacher', 'users_student'));
     }
 
     public function create(){

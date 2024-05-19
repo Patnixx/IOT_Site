@@ -11,11 +11,11 @@
                 <div class="buttons">
                     <form action="{{route('usersDelete', $user->id)}}" method="POST">
                         @csrf
-                        <button class="button delete-button">Delete</button><!--TODO - pridat boostrap ikonky -->
+                        <button class="button delete-button"><img src="{{asset('assets/icons/delete.svg')}}" alt="Delete"></button><!--TODO - pridat boostrap ikonky -->
                     </form>
                     <form action="{{route('usersEdit', $user->id)}}" method="get">
                         @csrf
-                        <button class="button edit-button">Edit</button>     <!--NOTE - to iste ako vyssie -->
+                        <button class="button edit-button"><img src="{{asset('assets/icons/edit.svg')}}" alt="Edit"></button>     <!--NOTE - to iste ako vyssie -->
                     </form> 
                   </div>
             </div>

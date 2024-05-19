@@ -3,4 +3,5 @@
     <div class="dot-link"><div class="dot"></div></div>
     <div class="dot-link"><div class="dot"></div></div>
     <div class="dot-link"><div class="dot"></div></div>
+    <div class="dot-link"><div class="dot"></div></div>
 </div>

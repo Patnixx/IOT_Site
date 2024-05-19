@@ -295,16 +295,34 @@ h2 {
 .container .classes .class-info .buttons button.delete-button {
   background-color: red;
   margin-right: 0.5rem;
+  height: 30px;
+  width: 30px;
 }
 .container .classes .class-info .buttons button.delete-button:hover {
   background-color: #8B0000;
 }
+.container .classes .class-info .buttons button.delete-button:hover img {
+  color: white;
+}
+.container .classes .class-info .buttons button.delete-button img {
+  max-width: 100%;
+  max-height: 100%;
+}
 .container .classes .class-info .buttons button.edit-button {
   background-color: orange;
   margin-right: 1rem;
+  height: 30px;
+  width: 30px;
 }
 .container .classes .class-info .buttons button.edit-button:hover {
   background-color: #8B4000;
+}
+.container .classes .class-info .buttons button.edit-button:hover img {
+  color: white;
+}
+.container .classes .class-info .buttons button.edit-button img {
+  max-width: 100%;
+  max-height: 100%;
 }
 .container .classes .class-info .buttons button.create-button {
   margin-top: 4.5rem;

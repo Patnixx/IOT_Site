@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Session;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 //use function Symfony\Component\String\b;
 
@@ -63,7 +64,7 @@ class UsersController extends Controller
         User::where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password, /*FIXME - password should be hashed*/
+            'password' => Hash::make($request->password),
             'rfid' => $request->rfid,
             'is_teacher' => $request->level,
         ]);

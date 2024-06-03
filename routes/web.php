@@ -18,9 +18,9 @@ use App\Http\Controllers\UsersController;
 |
 */
 Route::get('/', [LoginController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'index']);
-Route::get('/feed', [FeedController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/register', [RegisterController::class, 'index'])->name('register');
+Route::get('/feed', [FeedController::class, 'index'])->name('feed');
 //Route::get('/classes/create', [ClassController::class, 'create']);
 
 

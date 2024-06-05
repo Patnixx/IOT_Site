@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Session;
 use Illuminate\Http\Request;
 use App\Models\Classroom;
-
 class ClassController extends Controller
 {
     public function index() {

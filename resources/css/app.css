@@ -137,6 +137,41 @@ h2 {
   background-color: #45a049;
 }
 
+.auth-container {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 10rem;
+}
+.auth-container .logo {
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth-container .logo img {
+  width: 75% !important;
+  height: 75% !important;
+}
+.auth-container .login-form {
+  grid-column: 2;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.is-invalid {
+  border: 1px solid red !important;
+  color: red !important;
+}
+
 .login-container {
   width: 300px;
   text-align: center;
@@ -145,7 +180,7 @@ h2 {
   display: block;
   margin-bottom: 5px;
 }
-.login-container input[type=email], .login-container input[type=password] {
+.login-container input {
   width: 100%;
   padding: 0.7rem;
   margin-bottom: 0.9rem;
@@ -362,29 +397,4 @@ h2 {
   align-items: center;
   margin-right: 2rem;
   color: white;
-}
-
-.auth-container {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 10rem 5rem 0 5rem;
-}
-.auth-container .logo {
-  grid-column: 1;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.auth-container .logo img {
-  width: 75% !important;
-  height: 75% !important;
-}
-.auth-container .login-form {
-  grid-column: 2;
 }/*# sourceMappingURL=app.css.map */

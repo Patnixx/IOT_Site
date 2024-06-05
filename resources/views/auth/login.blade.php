@@ -5,10 +5,17 @@
 @section('content')
 <div class="login-container">
   <h1 class="green">Login</h1>
-  <form>
+  <form method="POST" action="{{route('custom.login')}}">
     @csrf
-    <input type="email" id="email" name="email" placeholder="Email">
-    <input type="password" id="password" name="password" placeholder="Password">
+    <div class="input-container">
+      <input type="email" id="email" name="email" placeholder="Email">
+    </div>
+    <div class="input-container">
+      <input type="password" id="password" name="password" placeholder="Password">
+      @if ($errors->has('emailPassword'))
+        <span class="text-danger">{{ $errors->first('emailPassword') }}</span>
+      @endif
+    </div>
     <div class="buttons">
       <button type="submit">Log In</button>
       <a href="{{route('register')}}">Register</a>

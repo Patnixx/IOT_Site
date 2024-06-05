@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\FeedController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\UsersController;
 
@@ -17,10 +15,13 @@ use App\Http\Controllers\UsersController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [LoginController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/register', [RegisterController::class, 'index'])->name('register');
-Route::get('/feed', [FeedController::class, 'index'])->name('feed');
+Route::get('/', [AuthController::class, 'loginIndex']);
+Route::get('/login', [AuthController::class, 'loginIndex'])->name('login');
+Route::post('/custom-login', [AuthController::class, 'loginAuth'])->name('custom.login');
+Route::get('/register', [AuthController::class, 'registerIndex'])->name('register');
+Route::post('/custom-registration', [AuthController::class, 'registerAuth'])->name('custom.register');
+Route::get('/feed', [AuthController::class, 'feed'])->name('feed');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 //Route::get('/classes/create', [ClassController::class, 'create']);
 
 

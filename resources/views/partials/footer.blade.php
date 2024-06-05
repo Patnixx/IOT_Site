@@ -4,4 +4,5 @@
     <div class="dot-link"><div class="dot"></div></div>
     <div class="dot-link"><div class="dot"></div></div>
     <div class="dot-link"><div class="dot"></div></div>
+    <a href="{{route('logout')}}"></a>
 </div>

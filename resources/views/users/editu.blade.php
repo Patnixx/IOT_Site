@@ -9,22 +9,22 @@
           <input type="password" id="password" name="password" value="{{$user->password}}">
           <input type="rfid" id="rfid" name="rfid" value="{{$user->rfid}}">
           <div class="ram">
-            @if($user->is_teacher == 'Teacher')
-              <input type="radio" id="teacher" name="level" value="Teacher" checked>
-              <label for="teacher">Teacher</label><br>
-              <input type="radio" id="student" name="level" value="Student">
-              <label for="student">Student</label><br>
-            @elseif($user->is_teacher == 'Student')
-              <input type="radio" id="teacher" name="level" value="Teacher">
-              <label for="teacher">Teacher</label><br>
-              <input type="radio" id="student" name="level" value="Student" checked>
-              <label for="student">Student</label><br>
-            @else
-              <input type="radio" id="teacher" name="level" value="Teacher">
-              <label for="teacher">Teacher</label><br>
-              <input type="radio" id="student" name="level" value="Student">
-              <label for="student">Student</label><br>
-            @endif
+              <div class="teacher">
+                <input type="radio" id="teacher" name="level" value="Teacher" @if($user->role == 'Teacher') checked @endif>
+                <label for="teacher">Teacher</label><br>
+              </div>
+              <div class="student">
+                <input type="radio" id="student" name="level" value="Student" @if ($user->role == 'Student') checked @endif>
+                <label for="student">Student</label><br>
+              </div>
+              <div class="user">
+                <input type="radio" id="user" name="level" value="User" @if ($user->role == 'User') checked @endif>
+                <label for="user">User</label><br>
+              </div>
+              <div class="admin">
+                <input type="radio" id="admin" name="level" value="Admin" @if ($user->role == 'Admin') checked @endif>
+                <label for="admin">Admin</label><br>
+              </div>
           </div>
           <button type="submit">Save</button>
         </form>

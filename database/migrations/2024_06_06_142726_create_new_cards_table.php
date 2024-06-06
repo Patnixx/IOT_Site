@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('new_card', function (Blueprint $table) {
+        Schema::create('new_cards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('rfid')->unique();
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('new_card');
+        Schema::dropIfExists('new_cards');
     }
 };

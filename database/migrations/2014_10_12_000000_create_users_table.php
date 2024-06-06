@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -18,10 +20,47 @@ return new class extends Migration
             //$table->timestamp('email_verified_at')->nullable();
             $table->string('role')->default('user');
             $table->string('password');
-            $table->string('rfid')->nullable();
+            $table->string('rfid')->default('Missing...');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+            array(
+                [
+                'name' => 'Admin',
+                'email' => 'admin@app.com',
+                'role' => 'Admin',
+                'password' => Hash::make('Jebemboha'),
+                'created_at' => now(),
+                'updated_at' => now()],
+
+                [
+                'name' => 'Scheidt Bachmann',
+                'email' => 'scheidt@bachmann.com',
+                'role' => 'User',
+                'password' => Hash::make('spsit-iot'),
+                'created_at' => now(),
+                'updated_at' => now()
+                ],
+                [
+                'name' => 'Peter Remiš',
+                'email' => 'p.remis@spsit.sk',
+                'role' => 'Teacher',
+                'password' => Hash::make('arduino-master'),
+                'created_at' => now(),
+                'updated_at' => now()
+                ],
+                [
+                'name' => 'Jozef Krajčovič',
+                'email' => 'jozefko.krajcik@gmail.com',
+                'role' => 'Student',
+                'password' => Hash::make('fetak1448'),
+                'created_at' => now(),
+                'updated_at' => now()
+                ]
+            )
+        );
     }
 
     /**

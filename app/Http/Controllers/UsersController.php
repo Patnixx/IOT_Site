@@ -12,8 +12,8 @@ class UsersController extends Controller
 {
     public function index(){
         $users = User::all();
-        $users_teacher = User::where('is_teacher', 'Teacher')->count();
-        $users_student = User::where('is_teacher', 'Student')->count();
+        $users_teacher = User::where('role', 'Teacher')->count();
+        $users_student = User::where('role', 'Student')->count();
         return view('users.indexu', compact('users', 'users_teacher', 'users_student'));
     }
 
@@ -38,7 +38,7 @@ class UsersController extends Controller
             'email' => $request->email,
             'password' => $request->password,
             'rfid' => $request->rfid,
-            'is_teacher' => $request->level,
+            'role' => $request->level,
         ]);
 
         Session::flash('success-message', 'User created successfully!');
@@ -66,7 +66,7 @@ class UsersController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'rfid' => $request->rfid,
-            'is_teacher' => $request->level,
+            'role' => $request->level,
         ]);
 
         //Session::flash('success-message', 'User updated successfully!');

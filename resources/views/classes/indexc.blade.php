@@ -7,8 +7,8 @@
             <div class="class-info">
                 <div class="class">{{$class->class_num}}</div>
                 <div class="user">{{$class->teacher}}</div>
-                <div class="type active">{{$class->status}}</div>
-                <div class="time">{{$class->updated_at}}</div>
+                <div class="type @if ($class->status == "Opened") active @endif">{{$class->status}}</div>
+                <div class="time">{{$class->time}}</div>
                 <div class="buttons">
                     <form action="{{route('classDelete', $class->id)}}" method="post">
                         @csrf

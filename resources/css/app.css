@@ -115,11 +115,28 @@ h2 {
   box-sizing: border-box;
 }
 .register-container .ram {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   justify-content: space-between;
-  text-align: center;
+  align-items: space-between;
   margin-bottom: 1rem;
+}
+.register-container .ram .admin {
+  grid-row: 1;
+  grid-column: 1;
+}
+.register-container .ram .user {
+  grid-row: 1;
+  grid-column: 2;
+}
+.register-container .ram .student {
+  grid-row: 2;
+  grid-column: 1;
+}
+.register-container .ram .teacher {
+  grid-row: 2;
+  grid-column: 2;
 }
 .register-container .ram label[for=student], .register-container .ram label[for=teacher] {
   color: rgba(235, 235, 235, 0.64);
@@ -328,8 +345,8 @@ h2 {
   font-size: 1rem;
   color: red;
 }
-.container .classes .class-info .type .active {
-  color: green;
+.container .classes .class-info .active {
+  color: green !important;
 }
 .container .classes .class-info .buttons {
   display: flex;

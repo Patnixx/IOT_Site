@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Session;
 use Illuminate\Http\Request;
 use App\Models\Classroom;
+use App\Models\Feed;
 class ClassController extends Controller
 {
     public function index() {
@@ -31,6 +32,13 @@ class ClassController extends Controller
             'class_num' => $request->class_num,
             'teacher' => $request->teacher,
             'status' => $request->status,
+            'time' => now()->format('H:i:s'),
+        ]);
+
+        Feed::create([
+            'class_num' => $request->class_num,
+            'user' => $request->teacher,
+            'time' => now()->format('H:i:s'),
         ]);
 
         Session::flash('success-message', 'Class created successfully!');
@@ -55,6 +63,13 @@ class ClassController extends Controller
             'class_num' => $request->class_num,
             'teacher' => $request->teacher,
             'status' => $request->status,
+            'time' => now()->format('H:i:s'),
+        ]);
+
+        Feed::create([
+            'class_num' => $request->class_num,
+            'user' => $request->teacher,
+            'time' => now()->format('H:i:s'),
         ]);
 
         Session::flash('success-message', 'Class updated successfully!');

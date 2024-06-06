@@ -126,11 +126,33 @@ body{
     }
 
     .ram{
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
       justify-content: space-between;
-      text-align: center;
+      align-items: space-between;
+      //text-align: center;
       margin-bottom: 1rem;
+
+      .admin{
+        grid-row: 1;
+        grid-column: 1;
+      }
+
+      .user{
+        grid-row: 1;
+        grid-column: 2;
+      }
+
+      .student{
+        grid-row: 2;
+        grid-column: 1;
+      }
+
+      .teacher{
+        grid-row: 2;
+        grid-column: 2;
+      }
 
       label[for="student"],label[for="teacher"]{
         color: rgba(235, 235, 235, 0.64);
@@ -377,11 +399,12 @@ body{
           padding-left: 1.5rem;
           font-size: 1rem;
           color: red;
-
-          .active {
-            color: green;
-          }
         }
+
+        .active {
+          color: green !important;
+        }
+        
 
         .buttons {
           display: flex;

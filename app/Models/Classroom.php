@@ -13,5 +13,6 @@ class Classroom extends Model
         'class_num',
         'status',
         'teacher',
+        'time',
     ];
 }

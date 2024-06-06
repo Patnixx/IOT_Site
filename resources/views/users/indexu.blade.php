@@ -6,7 +6,7 @@
         <div class="classes">
             <div class="class-info">
                 <div class="user">{{$user->name}}</div>
-                <div class="level">{{$user->is_teacher}}</div>
+                <div class="level">{{$user->role}}</div>
                 <div class="RFID">{{$user->rfid}}</div>
                 <div class="buttons">
                     <form action="{{route('usersDelete', $user->id)}}" method="POST">

@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="error-container">
-            <div class="error-logo">
+            <div class="logo">
                 @yield('logo')
             </div>
             <div class="error-form">

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FeedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/login', [AuthController::class, 'loginIndex'])->name('login');
 Route::post('/custom-login', [AuthController::class, 'loginAuth'])->name('custom.login');
 Route::get('/register', [AuthController::class, 'registerIndex'])->name('register');
 Route::post('/custom-registration', [AuthController::class, 'registerAuth'])->name('custom.register');
-Route::get('/feed', [AuthController::class, 'feed'])->name('feed');
+Route::get('/feed', [FeedController::class, 'feed'])->name('feed');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 //Route::get('/classes/create', [ClassController::class, 'create']);
 

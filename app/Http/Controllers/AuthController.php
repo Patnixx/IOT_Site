@@ -27,6 +27,8 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('feed')->withSuccess('Signed in');
         }
+        $validator['emailPassword'] = 'Email is missing';
+        $validator['password'] = 'Password is missing';
         $validator['emailPassword'] = 'Email address or password is incorrect';
         return redirect('login')->withErrors($validator);
 
@@ -40,6 +42,7 @@ class AuthController extends Controller
     public function registerAuth(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
             'cpassword' => 'required|same:password',
@@ -59,15 +62,6 @@ class AuthController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-    }
-
-    public function feed()
-    {
-        if(Auth::check()){
-            return view('feed.index');
-        }
-
-        return redirect('login')->withSuccess('You are not allowed to access');
     }
 
     public function logout()

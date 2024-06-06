@@ -8,12 +8,12 @@
   <form method="POST" action="{{route('custom.login')}}">
     @csrf
     <div class="input-container">
-      <input type="email" id="email" name="email" placeholder="Email">
+      <input type="email" id="email" name="email" placeholder="Email" class="@error('email') is-invalid @enderror" value="{{@old('email')}}">
     </div>
     <div class="input-container">
-      <input type="password" id="password" name="password" placeholder="Password">
+      <input type="password" id="password" name="password" placeholder="Password" class="@error('password') is-invalid @enderror" value="{{@old('password')}}" minlength="6">
       @if ($errors->has('emailPassword'))
-        <span class="text-danger">{{ $errors->first('emailPassword') }}</span>
+        <span class="text-danger"><strong>{{ $errors->first('emailPassword') }}</strong></span>
       @endif
     </div>
     <div class="buttons">

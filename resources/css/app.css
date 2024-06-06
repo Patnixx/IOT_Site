@@ -165,6 +165,11 @@ h2 {
 .input-container {
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.input-container .text-danger {
+  color: red;
 }
 
 .is-invalid {
@@ -192,6 +197,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   height: 2rem;
+  margin-top: 1rem;
 }
 .login-container .buttons button {
   width: 40%;

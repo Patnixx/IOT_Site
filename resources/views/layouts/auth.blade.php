@@ -3,6 +3,7 @@
     <head>
         <title>IOT_Site</title>
         @vite(['resources/css/app.css'])
+        @vite(['resources/js/app.js'])
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
@@ -14,13 +15,5 @@
                 @yield('content')
             </div>
         </div>
-        
-        <!--<div class="dot-bar">
-            <div class="dot-link"><div class="dot active"></div></div>
-            <div class="dot-link"><div class="dot"></div></div>
-            <div class="dot-link"><div class="dot"></div></div>
-            <div class="dot-link"><div class="dot"></div></div>
-        </div>-->
-        @extends('partials.footer')
     </body>   
 </html>

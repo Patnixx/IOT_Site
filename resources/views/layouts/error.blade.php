@@ -7,7 +7,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
-        @yield('content')
-        @extends('partials.footer')
+        <div class="error-container">
+            <div class="error-logo">
+                @yield('logo')
+            </div>
+            <div class="error-form">
+                @yield('content')
+            </div>
+        </div>
     </body>   
 </html>

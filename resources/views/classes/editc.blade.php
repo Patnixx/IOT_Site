@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    <title>CM | Edit Class {{$class->class_num}}</title>
+@endsection
 @section('content')
 <div class="register-container">
         <h1 class="green">Edit Class</h1>

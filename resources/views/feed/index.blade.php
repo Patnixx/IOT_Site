@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    <title>CM | Feed</title>
+@endsection
 @section('content')
 <h1 class="green">Feed</h1>
     <div class="feed-container">

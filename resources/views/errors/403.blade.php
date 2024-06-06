@@ -1,4 +1,7 @@
 @extends('layouts.error')
+@section('title')
+    <title>CM | Error 403</title>
+@endsection
 @section('logo')
     <img src="{{asset('assets/icons/403_error.svg')}}" alt="logo">
 @endsection

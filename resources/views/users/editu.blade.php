@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    <title>CM | Edit User {{$user->name}}</title>
+@endsection
 @section('content')
 <div class="register-container">
         <h1 class="green">Edit User</h1>
@@ -6,7 +9,7 @@
           @csrf
           <input type="name" id="name" name="name" value="{{$user->name}}">
           <input type="email" id="email" name="email" value="{{$user->email}}">
-          <input type="password" id="password" name="password" value="{{$user->password}}">
+          {{--<input type="password" id="password" name="password" value="{{$user->password}}">--}}
           <input type="rfid" id="rfid" name="rfid" value="{{$user->rfid}}">
           <div class="ram">
               <div class="teacher">

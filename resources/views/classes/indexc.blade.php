@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    <title>CM | Classes</title>
+@endsection
 @section('content')
 <div class="container">
     <h1 class="green">Classes</h1>

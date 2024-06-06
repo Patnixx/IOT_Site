@@ -1,4 +1,7 @@
 @extends('layouts.error')
+@section('title')
+    <title>CM | Error 404</title>
+@endsection
 @section('logo')
     <img src="{{asset('assets/icons/404_not_found.svg')}}" alt="logo">
 @endsection

@@ -1,4 +1,7 @@
 @extends('layouts.auth')
+@section('title')
+    <title>CM | Register</title>
+@endsection
 @section('logo')
   <img src="{{asset('assets/icons/register.svg')}}" alt="logo">
 @endsection

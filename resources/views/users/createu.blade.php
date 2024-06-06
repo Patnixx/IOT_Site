@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+    <title>CM | Create User</title>
+@endsection
 @section('content')
 <div class="register-container">
         <h1 class="green">Register User</h1>

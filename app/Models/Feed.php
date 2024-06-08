@@ -11,7 +11,12 @@ class Feed extends Model
 
     protected $fillable = [
         'class_num',
-        'user',
+        'user_id',
         'time',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

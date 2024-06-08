@@ -23,8 +23,6 @@ Route::get('/register', [AuthController::class, 'registerIndex'])->name('registe
 Route::post('/custom-registration', [AuthController::class, 'registerAuth'])->name('custom.register');
 Route::get('/feed', [FeedController::class, 'feed'])->name('feed');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-//Route::get('/classes/create', [ClassController::class, 'create']);
-
 
 Route::get('classes', [ClassController::class, 'index'])->name('classIndex');
 Route::get('classes/index', [ClassController::class, 'index'])->name('classIndex');

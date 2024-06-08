@@ -52,6 +52,14 @@ return new class extends Migration
                 'updated_at' => now()
                 ],
                 [
+                    'name' => 'Lenka Vnuková',
+                    'email' => 'matikaontop@spsit.sk',
+                    'role' => 'Teacher',
+                    'password' => Hash::make('dvanadruhu'),
+                    'created_at' => now(),
+                    'updated_at' => now()
+                    ],
+                [
                 'name' => 'Jozef Krajčovič',
                 'email' => 'jozefko.krajcik@gmail.com',
                 'role' => 'Student',

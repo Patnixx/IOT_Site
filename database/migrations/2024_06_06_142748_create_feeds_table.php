@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('feeds', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->index();
             $table->string('class_num');
-            $table->string('user');
             $table->string('time');
             $table->timestamps();
         });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Feed;
+use App\Models\User;
 
 class FeedController extends Controller
 {
@@ -17,7 +18,13 @@ class FeedController extends Controller
         }*/
         if(Auth::check()){
             if(Auth::user()->role == 'Admin' || Auth::user()->role == 'Teacher' || Auth::user()->role == 'Student'){
-            $feeds = Feed::orderBy('time', 'desc')->get();
+            $feeds = Feed::whereHas('user', function($query) {
+                $query->whereIn('role', ['Teacher', 'Student']);
+            })
+            ->with(['user'])
+            ->orderBy('time', 'desc')
+            ->take(10)
+            ->get();
             return view('feed.index', compact('feeds'));
             }
 

@@ -5,6 +5,8 @@ use Session;
 use Illuminate\Http\Request;
 use App\Models\Classroom;
 use App\Models\Feed;
+use App\Models\User;
+
 class ClassController extends Controller
 {
     public function index() {
@@ -35,9 +37,11 @@ class ClassController extends Controller
             'time' => now()->format('H:i:s'),
         ]);
 
+        $user_id = User::where('name', $request->teacher)->get('id');
+
         Feed::create([
             'class_num' => $request->class_num,
-            'user' => $request->teacher,
+            'user_id' => $user_id[0]->id,
             'time' => now()->format('H:i:s'),
         ]);
 
@@ -66,9 +70,11 @@ class ClassController extends Controller
             'time' => now()->format('H:i:s'),
         ]);
 
+        $user_id = User::where('name', $request->teacher)->get('id');
+
         Feed::create([
             'class_num' => $request->class_num,
-            'user' => $request->teacher,
+            'user_id' => $user_id[0]->id,
             'time' => now()->format('H:i:s'),
         ]);
 

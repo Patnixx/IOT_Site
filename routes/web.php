@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
@@ -23,6 +24,7 @@ Route::get('/register', [AuthController::class, 'registerIndex'])->name('registe
 Route::post('/custom-registration', [AuthController::class, 'registerAuth'])->name('custom.register');
 Route::get('/feed', [FeedController::class, 'feed'])->name('feed');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 Route::get('classes', [ClassController::class, 'index'])->name('classIndex');
 Route::get('classes/index', [ClassController::class, 'index'])->name('classIndex');

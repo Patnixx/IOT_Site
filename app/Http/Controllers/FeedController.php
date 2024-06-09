@@ -17,7 +17,7 @@ class FeedController extends Controller
             })
             ->with(['user'])
             ->orderBy('time', 'desc')
-            ->take(3)
+            ->take(10)
             ->get();
             return view('feed.index', compact('feeds'));
             }

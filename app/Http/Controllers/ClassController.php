@@ -32,7 +32,9 @@ class ClassController extends Controller
     {
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
-                return view('classes.createc');
+                $users = User::where('role', 'Teacher')->get();
+                $users_count = User::where('role', 'Teacher')->count();
+                return view('classes.createc', compact('users','users_count'));
             }
             else {
                 return view('errors.403');
@@ -52,19 +54,19 @@ class ClassController extends Controller
                     'teacher'=> ['required'],
                     'status' => ['required'],
                 ]);
+                
+                $user = User::where('name', $request->teacher)->get();
         
                 Classroom::create([
                     'class_num' => $request->class_num,
-                    'teacher' => $request->teacher,
+                    'teacher' => $user[0]->name,
                     'status' => $request->status,
                     'time' => now()->format('H:i:s'),
                 ]);
         
-                $user_id = User::where('name', $request->teacher)->get('id');
-        
                 Feed::create([
                     'class_num' => $request->class_num,
-                    'user_id' => $user_id[0]->id,
+                    'user_id' => $user[0]->id,
                     'time' => now()->format('H:i:s'),
                 ]);
         
@@ -85,7 +87,9 @@ class ClassController extends Controller
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
                 $class = Classroom::find($id);
-                return view('classes.editc', compact('class'));
+                $users = User::where('role', 'Teacher')->get();
+                $users_count = User::where('role', 'Teacher')->count();
+                return view('classes.editc', compact('class', 'users', 'users_count'));
             }
             else {
                 return view('errors.403');
@@ -105,19 +109,21 @@ class ClassController extends Controller
                     'teacher'=> ['required'],
                     'status' => ['required'],
                 ]);
+                
+                $user = User::where('name', $request->teacher)->get();                
         
                 Classroom::where('id', $id)->update([
                     'class_num' => $request->class_num,
-                    'teacher' => $request->teacher,
+                    'teacher' => $user[0]->name,
                     'status' => $request->status,
                     'time' => now()->format('H:i:s'),
                 ]);
         
-                $user_id = User::where('name', $request->teacher)->get('id');
+                
         
                 Feed::create([
                     'class_num' => $request->class_num,
-                    'user_id' => $user_id[0]->id,
+                    'user_id' => $user[0]->id,
                     'time' => now()->format('H:i:s'),
                 ]);
         

@@ -9,8 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
-{
-    //
+{ //NOTE - This controller is done
     public function loginIndex()
     {
         return view('auth.login');
@@ -25,7 +24,10 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('admin')->withSuccess('Signed in');
+            if (Auth::user()->role == 'Admin') {
+                return redirect()->intended('admin')->withSuccess('Signed in');
+            }
+            return redirect()->intended('feed')->withSuccess('Signed in');
         }
         $validator['emailPassword'] = 'Email is missing';
         $validator['password'] = 'Password is missing';

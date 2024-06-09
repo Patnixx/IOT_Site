@@ -8,14 +8,8 @@ use App\Models\Feed;
 use App\Models\User;
 
 class FeedController extends Controller
-{
-    //
-    public function feed()
-    {
-        /*if(Auth::check()){
-            $feeds = Feed::orderBy('time', 'desc')->get();
-            return view('feed.index', compact('feeds'));
-        }*/
+{ //NOTE - This controller is done
+    public function feed(){
         if(Auth::check()){
             if(Auth::user()->role == 'Admin' || Auth::user()->role == 'Teacher' || Auth::user()->role == 'Student'){
             $feeds = Feed::whereHas('user', function($query) {
@@ -23,7 +17,7 @@ class FeedController extends Controller
             })
             ->with(['user'])
             ->orderBy('time', 'desc')
-            ->take(10)
+            ->take(3)
             ->get();
             return view('feed.index', compact('feeds'));
             }

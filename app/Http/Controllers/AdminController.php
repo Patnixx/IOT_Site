@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
-{
-    //
+{ //NOTE - This controller is done
     public function index()
     {
         if(Auth::check()){

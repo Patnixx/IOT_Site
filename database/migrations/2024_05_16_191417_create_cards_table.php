@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('rfid')->unique();
-            $table->integer('owner')->unique();
+            $table->integer('owner_id')->unique();
             $table->timestamps();
         });
     }

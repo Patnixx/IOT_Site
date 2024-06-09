@@ -25,7 +25,7 @@ return new class extends Migration
             array(
                 ['title' => 'Cards',
                 'description' => 'Manage All Cards by either creating, editing or deleting new or old cards.',
-                'link' => '',
+                'link' => 'cardsIndex',
                 'route' => "assets/icons/cards.png",
                 'created_at' => now(),
                 'updated_at' => now(),

@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
-{
+{ //NOTE - This model is done
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -48,5 +48,10 @@ class User extends Authenticatable
     public function feeds()
     {
         return $this->hasMany(Feed::class, 'user_id');
+    }
+
+    public function cards()
+    {
+        return $this->hasOne(Card::class, 'owner_id');
     }
 }

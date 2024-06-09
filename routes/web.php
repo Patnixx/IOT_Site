@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\CardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,11 @@ Route::post('users/store', [UsersController::class, 'store'])->name('usersStore'
 Route::get('users/edit/{id}', [UsersController::class, 'edit'])->name('usersEdit');
 Route::post('users/update/{id}', [UsersController::class, 'update'])->name('usersUpdate');
 Route::post('users/delete/{id}', [UsersController::class, 'delete'])->name('usersDelete');
+
+Route::get('cards', [CardController::class, 'index'])->name('cardsIndex');
+Route::get('cards/index', [CardController::class, 'index'])->name('cardsIndex');
+Route::get('cards/create', [CardController::class, 'create'])->name('cardsCreate');
+Route::post('cards/store', [CardController::class, 'store'])->name('cardsStore');
+Route::get('cards/edit/{id}', [CardController::class, 'edit'])->name('cardsEdit');
+Route::post('cards/update/{id}', [CardController::class, 'update'])->name('cardsUpdate');
+Route::post('cards/delete/{id}', [CardController::class, 'delete'])->name('cardsDelete');

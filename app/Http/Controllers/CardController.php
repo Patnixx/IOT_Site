@@ -2,22 +2,32 @@
 
 namespace App\Http\Controllers;
 use Session;
-use Illuminate\Http\Request;
-use App\Models\Classroom;
-use App\Models\Feed;
+use App\Models\Card;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ClassController extends Controller
+class CardController extends Controller
 { //NOTE - This controller is done
     public function index() {
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
-                $classes = Classroom::all();
-                $classes_num = Classroom::all()->count();
-                $classes_open = Classroom::where('status', 'opened')->count();
-                $classes_closed = Classroom::where('status', 'closed')->count();
-                return view('classes.indexc', compact('classes', 'classes_num', 'classes_open', 'classes_closed'));
+                $cards = Card::whereHas('user', function($query) {
+                    $query->whereIn('role', ['Teacher', 'Student']);
+                })
+                ->with(['user'])
+                ->get();
+                $cards_card = Card::whereHas('user', function($query) {
+                    $query->whereIn('role', ['Teacher']);
+                })
+                ->with(['user'])
+                ->count();
+                $cards_chip = Card::whereHas('user', function($query) {
+                    $query->whereIn('role', ['Student']);
+                })
+                ->with(['user'])
+                ->count();
+                return view('cards.indexca', compact('cards', 'cards_card', 'cards_chip'));
             }
             else {
                 return view('errors.403');
@@ -32,7 +42,7 @@ class ClassController extends Controller
     {
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
-                return view('classes.createc');
+                return view('cards.createca');
             }
             else {
                 return view('errors.403');
@@ -48,28 +58,19 @@ class ClassController extends Controller
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
                 $request->validate([
-                    'class_num' => ['required'],
-                    'teacher'=> ['required'],
-                    'status' => ['required'],
+                    'rfid' => ['required'],
+                    'owner'=> ['required'],
                 ]);
         
-                Classroom::create([
-                    'class_num' => $request->class_num,
-                    'teacher' => $request->teacher,
-                    'status' => $request->status,
-                    'time' => now()->format('H:i:s'),
-                ]);
+                $user_id = User::where('name', $request->owner)->get('id');
         
-                $user_id = User::where('name', $request->teacher)->get('id');
-        
-                Feed::create([
-                    'class_num' => $request->class_num,
-                    'user_id' => $user_id[0]->id,
-                    'time' => now()->format('H:i:s'),
+                Card::create([
+                    'rfid' => $request->rfid,
+                    'owner_id' => $user_id[0]->id,
                 ]);
         
                 Session::flash('success-message', 'Class created successfully!');
-                return redirect()->route('classIndex');
+                return redirect()->route('cardsIndex');
             }
             else {
                 return view('errors.403');
@@ -84,8 +85,8 @@ class ClassController extends Controller
     {
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
-                $class = Classroom::find($id);
-                return view('classes.editc', compact('class'));
+                $card = Card::find($id);
+                return view('cards.editca', compact('card'));
             }
             else {
                 return view('errors.403');
@@ -101,28 +102,19 @@ class ClassController extends Controller
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
                 $request->validate([
-                    'class_num' => ['required'],
-                    'teacher'=> ['required'],
-                    'status' => ['required'],
+                    'rfid' => ['required'],
+                    'owner'=> ['required'],
                 ]);
         
-                Classroom::where('id', $id)->update([
-                    'class_num' => $request->class_num,
-                    'teacher' => $request->teacher,
-                    'status' => $request->status,
-                    'time' => now()->format('H:i:s'),
-                ]);
+                $user_id = User::where('name', $request->owner)->get('id');
         
-                $user_id = User::where('name', $request->teacher)->get('id');
-        
-                Feed::create([
-                    'class_num' => $request->class_num,
-                    'user_id' => $user_id[0]->id,
-                    'time' => now()->format('H:i:s'),
+                Card::where('id', $id)->update([
+                    'rfid' => $request->rfid,
+                    'owner_id' => $user_id[0]->id,
                 ]);
         
                 Session::flash('success-message', 'Class updated successfully!');
-                return redirect()->route('classIndex');
+                return redirect()->route('cardsIndex');
             }
             else {
                 return view('errors.403');
@@ -137,9 +129,9 @@ class ClassController extends Controller
     {
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
-                Classroom::where('id', $id)->delete();
+                Card::where('id', $id)->delete();
                 Session::flash('success-message', 'Class deleted successfully!');
-                return redirect()->route('classIndex');
+                return redirect()->route('cardsIndex');
             }
             else {
                 return view('errors.403');

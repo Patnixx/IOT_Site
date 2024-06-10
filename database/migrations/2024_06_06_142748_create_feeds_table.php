@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('user_id')->index();
             $table->string('class_num');
+            $table->string('interaction');
             $table->string('time');
             $table->timestamps();
         });

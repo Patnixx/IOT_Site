@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Card;
 use Session;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -18,7 +20,9 @@ class UsersController extends Controller
                 $users = User::all();
                 $users_teacher = User::where('role', 'Teacher')->count();
                 $users_student = User::where('role', 'Student')->count();
-                return view('users.indexu', compact('users', 'users_teacher', 'users_student'));
+                $users_admin = User::where('role', 'Admin')->count();
+                $users_user = User::where('role', 'User')->count();
+                return view('users.indexu', compact('users', 'users_teacher', 'users_student', 'users_admin', 'users_user'));
             }
             else {
                 return view('errors.403');
@@ -32,7 +36,9 @@ class UsersController extends Controller
     public function create(){
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
-                return view('users.createu');
+                $cards = Card::whereNull('owner_id')->get();
+                $cards_count = Card::whereNull('owner_id')->count();
+                return view('users.createu', compact('cards', 'cards_count'));
             }
             else {
                 return view('errors.403');
@@ -50,7 +56,7 @@ class UsersController extends Controller
                 'name'=> ['required'],
                 'email'=> ['required'],
                 'password'=> ['required'],
-                'rfid'=> ['required'],
+                //'rfid'=> ['required'],
                 'level'=> ['required'],
                 ]);
 
@@ -60,6 +66,10 @@ class UsersController extends Controller
                     'password' => $request->password,
                     'rfid' => $request->rfid,
                     'role' => $request->level,
+                ]);
+
+                Card::where('rfid', $request->rfid)->update([
+                    'owner_id' => User::where('rfid', $request->rfid)->first()->id,
                 ]);
 
                 Session::flash('success-message', 'User created successfully!');
@@ -78,7 +88,9 @@ class UsersController extends Controller
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
                 $user = User::find($id);
-                return view('users.editu', compact('user'));
+                $cards = Card::whereNull('owner_id')->get();
+                $cards_count = Card::whereNull('owner_id')->count();
+                return view('users.editu', compact('user', 'cards', 'cards_count'));
             }
             else {
                 return view('errors.403');
@@ -97,7 +109,6 @@ class UsersController extends Controller
                 $request->validate([
                     'name'=> ['required'],
                     'email'=> ['required'],
-                    'password'=> ['required'],
                     'rfid'=> ['required'],
                     'level'=> ['required'],
                 ]);
@@ -105,9 +116,16 @@ class UsersController extends Controller
                 User::where('id', $id)->update([
                     'name' => $request->name,
                     'email' => $request->email,
-                    'password' => Hash::make($request->password),
                     'rfid' => $request->rfid,
                     'role' => $request->level,
+                ]);
+
+                Card::where('owner_id', $id)->update([
+                    'owner_id' => null,
+                ]);
+
+                Card::where('rfid', $request->rfid)->update([
+                    'owner_id' => $id,
                 ]);
 
                 Session::flash('success-message', 'User updated successfully!');
@@ -127,6 +145,9 @@ class UsersController extends Controller
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
                 User::where('id', $id)->delete();
+                Card::where('owner_id', $id)->update([
+                    'owner_id' => null,
+                ]);
                 Session::flash('success-message', 'User deleted successfully!');
                 return redirect()->route('usersIndex');
             }

@@ -10,7 +10,7 @@
             <div class="class-info">
                 <div class="user">{{$user->name}}</div>
                 <div class="level">{{$user->role}}</div>
-                <div class="RFID">{{$user->rfid}}</div>
+                <div class="RFID">@if($user->rfid == null) Missing... @else {{$user->rfid}} @endif</div>
                 <div class="buttons">
                     <form action="{{route('usersDelete', $user->id)}}" method="POST">
                         @csrf
@@ -31,6 +31,12 @@
     </div>
     <div class="stat">
         <p>Number of Students: {{$users_student}} </p>
+    </div>
+    <div class="stat">
+        <p>Number of Admins: {{$users_admin}} </p>
+    </div>
+    <div class="stat">
+        <p>Number of Users: {{$users_user}} </p>
     </div>
 </div>
 <div class="acko">

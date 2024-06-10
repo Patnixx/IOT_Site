@@ -17,11 +17,9 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            //$table->timestamp('email_verified_at')->nullable();
             $table->string('role')->default('user');
             $table->string('password');
-            $table->string('rfid')->default('Missing...');
-            $table->rememberToken();
+            $table->string('rfid')->unique()->nullable();
             $table->timestamps();
         });
 
@@ -52,12 +50,12 @@ return new class extends Migration
                 'updated_at' => now()
                 ],
                 [
-                    'name' => 'Lenka Vnuková',
-                    'email' => 'matikaontop@spsit.sk',
-                    'role' => 'Teacher',
-                    'password' => Hash::make('dvanadruhu'),
-                    'created_at' => now(),
-                    'updated_at' => now()
+                'name' => 'Lenka Vnuková',
+                'email' => 'matikaontop@spsit.sk',
+                'role' => 'Teacher',
+                'password' => Hash::make('dvanadruhu'),
+                'created_at' => now(),
+                'updated_at' => now()
                     ],
                 [
                 'name' => 'Jozef Krajčovič',

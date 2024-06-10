@@ -72,7 +72,7 @@ body{
 
     .super{
       display: flex;
-      justify-content: center;
+      justify-content: start;
       align-items: center;
 
       .feed-item{
@@ -130,7 +130,7 @@ body{
     input[type="rfid"],
     input[type="class"],
     input[type="teacher"],
-    input[type="status"] {
+    input[type="status"], select {
       width: 100%;
       padding: 0.7rem;
       margin-bottom: 0.9rem;
@@ -168,7 +168,7 @@ body{
         grid-column: 2;
       }
 
-      label[for="student"],label[for="teacher"]{
+      label[for="student"],label[for="teacher"], label[for="admin"], label[for="user"]{
         color: rgba(235, 235, 235, 0.64);
       }
     }

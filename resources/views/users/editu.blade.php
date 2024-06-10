@@ -9,7 +9,17 @@
           @csrf
           <input type="name" id="name" name="name" value="{{$user->name}}">
           <input type="email" id="email" name="email" value="{{$user->email}}">
-          <input type="rfid" id="rfid" name="rfid" value="{{$user->rfid}}">
+          @if($cards_count > 0)
+            @if($user->role == "Teacher" || $user->role == "Student")
+              <select name="rfid" id="rfid">
+                  @foreach($cards as $card)
+                    <option value="{{$card->rfid}}" @if($card->owner_id == $user->id) selected @endif>{{$card->rfid}} ({{$card->type}})</option>
+                  @endforeach
+              </select>
+            @endif
+          @else
+            <input type="rfid" id="rfid" name="rfid" value="{{$user->rfid}}">
+          @endif
           <div class="ram">
               <div class="teacher">
                 <input type="radio" id="teacher" name="level" value="Teacher" @if($user->role == 'Teacher') checked @endif>

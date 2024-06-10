@@ -12,8 +12,9 @@ class AdminController extends Controller
     {
         if(Auth::check()){
             if (Auth::user()->role == 'Admin') {
+                $name = Auth::user()->name;
                 $admin_cards = AdminCard::all();
-                return view('admin.index', compact('admin_cards'));
+                return view('admin.index', compact('admin_cards', 'name'));
             }
             else {
                 return view('errors.403');

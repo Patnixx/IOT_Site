@@ -68,7 +68,7 @@ h2 {
 }
 .feed-container .super {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 .feed-container .super .feed-item {
@@ -117,7 +117,7 @@ h2 {
 .register-container input[type=rfid],
 .register-container input[type=class],
 .register-container input[type=teacher],
-.register-container input[type=status] {
+.register-container input[type=status], .register-container select {
   width: 100%;
   padding: 0.7rem;
   margin-bottom: 0.9rem;
@@ -149,7 +149,7 @@ h2 {
   grid-row: 2;
   grid-column: 2;
 }
-.register-container .ram label[for=student], .register-container .ram label[for=teacher] {
+.register-container .ram label[for=student], .register-container .ram label[for=teacher], .register-container .ram label[for=admin], .register-container .ram label[for=user] {
   color: rgba(235, 235, 235, 0.64);
 }
 .register-container button[type=submit] {

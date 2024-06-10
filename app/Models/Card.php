@@ -11,6 +11,7 @@ class Card extends Model
 
     protected $fillable = [
         'rfid',
+        'type',
         'owner_id',
     ];
 

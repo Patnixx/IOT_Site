@@ -17,7 +17,7 @@
                 <h2>{{$feed->class_num}}</h2>
                 <span class="time">{{$feed->time}}</span>
               </div>
-              <div class="content">Classroom {{$feed->class_num}} was interacted by the {{$feed->user->role}} {{$feed->user->name}}.</div>
+              <div class="content">Classroom {{$feed->class_num}} has been <strong>{{$feed->interaction}}</strong> by the {{$feed->user->role}} {{$feed->user->name}}.</div>
             </div>
           </div>
       @endforeach

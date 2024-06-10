@@ -12,6 +12,7 @@ class Feed extends Model
     protected $fillable = [
         'class_num',
         'user_id',
+        'interaction',
         'time',
     ];
 

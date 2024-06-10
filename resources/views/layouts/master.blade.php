@@ -8,6 +8,6 @@
     </head>
     <body>
         @yield('content')
-        @extends('partials.footer')
+        {{--@extends('partials.footer')--}}
     </body>   
 </html>

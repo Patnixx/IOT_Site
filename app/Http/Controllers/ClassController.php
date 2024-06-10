@@ -67,6 +67,7 @@ class ClassController extends Controller
                 Feed::create([
                     'class_num' => $request->class_num,
                     'user_id' => $user[0]->id,
+                    'interaction' => $request->status,
                     'time' => now()->format('H:i:s'),
                 ]);
         
@@ -124,6 +125,7 @@ class ClassController extends Controller
                 Feed::create([
                     'class_num' => $request->class_num,
                     'user_id' => $user[0]->id,
+                    'interaction' => $request->status,
                     'time' => now()->format('H:i:s'),
                 ]);
         
